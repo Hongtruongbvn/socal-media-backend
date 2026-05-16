@@ -21,18 +21,7 @@ async function bootstrap() {
   // CORS configuration (giữ nguyên của bạn)
   app.enableCors({
     origin: [
-      'http://localhost:3000',
-      'http://localhost:8081',
-      'http://172.20.10.3:8081',
-      'exp://172.20.10.3:8081',
-      'http://localhost:5174',
-      'http://localhost:5175',
-      'http://localhost:5173',
-      'http://localhost:5172',
-      'http://localhost:5171',
-      'http://localhost:5170',
-      'http://192.168.1.*', 
-      '*'
+    'https://socal-media-frontend.vercel.app'
     ],
     credentials: true,
     methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
