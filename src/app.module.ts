@@ -83,7 +83,6 @@ import { UploadModule } from './posts/upload.module';
         `"Socal Media" <${config.get<string>('MAIL_USER')}>`,
     },
 
-    verify: false,
   }),
 }),
 
