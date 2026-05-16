@@ -61,26 +61,31 @@ import { UploadModule } from './posts/upload.module';
     }),
 
     MailerModule.forRootAsync({
-      imports: [ConfigModule],
-      inject: [ConfigService],
-      useFactory: (config: ConfigService) => ({
-        transport: {
-          host: config.get<string>('MAIL_HOST'),
-          port: config.get<number>('MAIL_PORT'),
-          secure: config.get<boolean>('MAIL_SECURE'),
-          auth: {
-            user: config.get<string>('MAIL_USER'),
-            pass: config.get<string>('MAIL_PASS'),
-          },
-        },
-        defaults: {
-          from:
-            config.get<string>('MAIL_FROM') ||
-            '"No Reply" <no-reply@yourdomain.com>',
-        },
-        verify: false,
-      }),
-    }),
+  imports: [ConfigModule],
+  inject: [ConfigService],
+  useFactory: (config: ConfigService) => ({
+    transport: {
+      host: config.get<string>('MAIL_HOST'),
+      port: Number(config.get<string>('MAIL_PORT')),
+      secure: config.get<string>('MAIL_SECURE') === 'true',
+      auth: {
+        user: config.get<string>('MAIL_USER'),
+        pass: config.get<string>('MAIL_PASS'),
+      },
+
+      connectionTimeout: 10000,
+      greetingTimeout: 10000,
+    },
+
+    defaults: {
+      from:
+        config.get<string>('MAIL_FROM') ||
+        `"Socal Media" <${config.get<string>('MAIL_USER')}>`,
+    },
+
+    verify: false,
+  }),
+}),
 
     EventEmitterModule.forRoot(),
     MongooseModule.forRoot(

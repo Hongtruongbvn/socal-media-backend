@@ -69,7 +69,8 @@ export class AuthService {
       sub: user._id,
       email: user.email,
     });
-    const verificationUrl = `http://localhost:5173/verify-email?token=${verificationToken}`;
+   const verificationUrl =
+  `${process.env.FRONTEND_URL}/verify-email?token=${verificationToken}`;
 
     await this.mailerService.sendMail({
       to: user.email,
@@ -135,7 +136,8 @@ export class AuthService {
 
     // 2. Gửi email
     // URL này sẽ trỏ đến trang đặt lại mật khẩu trên Frontend của bạn
-    const resetUrl = `http://localhost:5173/reset-password/${resetToken}`;
+   const resetUrl =
+  `${process.env.FRONTEND_URL}/reset-password/${resetToken}`;
 
     await this.mailerService.sendMail({
       to: user.email,
