@@ -59,22 +59,29 @@ import { UploadModule } from './posts/upload.module';
         },
       }),
     }),
-
-    MailerModule.forRootAsync({
+MailerModule.forRootAsync({
   imports: [ConfigModule],
   inject: [ConfigService],
   useFactory: (config: ConfigService) => ({
     transport: {
       host: config.get<string>('MAIL_HOST'),
       port: Number(config.get<string>('MAIL_PORT')),
-      secure: config.get<string>('MAIL_SECURE') === 'true',
+      secure: false,
+
       auth: {
         user: config.get<string>('MAIL_USER'),
         pass: config.get<string>('MAIL_PASS'),
       },
 
-      connectionTimeout: 10000,
-      greetingTimeout: 10000,
+      tls: {
+        rejectUnauthorized: false,
+      },
+
+      pool: true,
+
+      connectionTimeout: 30000,
+      greetingTimeout: 30000,
+      socketTimeout: 30000,
     },
 
     defaults: {
@@ -83,8 +90,10 @@ import { UploadModule } from './posts/upload.module';
         `"Socal Media" <${config.get<string>('MAIL_USER')}>`,
     },
 
+    preview: false,
   }),
 }),
+
 
     EventEmitterModule.forRoot(),
     MongooseModule.forRoot(
