@@ -19,14 +19,14 @@ async function bootstrap() {
   });
 
   // CORS configuration (giữ nguyên của bạn)
-  app.enableCors({
-    origin: [
-    'https://socal-media-frontend.vercel.app'
-    ],
-    credentials: true,
-    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
-    allowedHeaders: ['Content-Type', 'Authorization', 'Accept'],
-  });
+app.enableCors({
+  origin: [
+    'https://socal-media-frontend.vercel.app',
+    'https://socal-media-frontend-git-main-hongtruongbvns-projects.vercel.app',
+    'https://socal-media-frontend-luxp4in6r-hongtruongbvns-projects.vercel.app',
+  ],
+  credentials: true,
+});
 
   app.setGlobalPrefix('api');
   app.useGlobalPipes(new ValidationPipe({ whitelist: true, transform: true }));
