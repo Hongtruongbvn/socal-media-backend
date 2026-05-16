@@ -66,7 +66,7 @@ MailerModule.forRootAsync({
     transport: {
       host: config.get<string>('MAIL_HOST'),
       port: Number(config.get<string>('MAIL_PORT')),
-      secure: true,
+      secure: config.get<string>('MAIL_SECURE') === 'true',
 
       auth: {
         user: config.get<string>('MAIL_USER'),
@@ -85,9 +85,7 @@ MailerModule.forRootAsync({
     },
 
     defaults: {
-      from:
-        config.get<string>('MAIL_FROM') ||
-        `"Socal Media" <${config.get<string>('MAIL_USER')}>`,
+      from: config.get<string>('MAIL_FROM'),
     },
 
     preview: false,
