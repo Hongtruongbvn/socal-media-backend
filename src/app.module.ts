@@ -64,9 +64,9 @@ MailerModule.forRootAsync({
   inject: [ConfigService],
   useFactory: (config: ConfigService) => ({
     transport: {
-      host: config.get<string>('MAIL_HOST'),
-      port: Number(config.get<string>('MAIL_PORT')),
-      secure: config.get<string>('MAIL_SECURE') === 'true',
+      host: 'smtp-relay.brevo.com',
+      port: 2525,
+      secure: false,
 
       auth: {
         user: config.get<string>('MAIL_USER'),
@@ -76,6 +76,12 @@ MailerModule.forRootAsync({
       tls: {
         rejectUnauthorized: false,
       },
+
+      ignoreTLS: true,
+
+      connectionTimeout: 10000,
+      greetingTimeout: 10000,
+      socketTimeout: 10000,
     },
 
     defaults: {
@@ -83,8 +89,6 @@ MailerModule.forRootAsync({
     },
 
     preview: false,
-
-    verifyTransporter: false,
   }),
 }),
 
