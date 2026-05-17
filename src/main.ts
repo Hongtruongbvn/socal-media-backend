@@ -24,6 +24,7 @@ app.enableCors({
     'https://socal-media-frontend.vercel.app',
     'https://socal-media-frontend-git-main-hongtruongbvns-projects.vercel.app',
     'https://socal-media-frontend-luxp4in6r-hongtruongbvns-projects.vercel.app',
+    'http://localhost:5173'
   ],
   credentials: true,
    methods: ['GET', 'POST', 'PUT', 'DELETE', 'PATCH', 'OPTIONS'],
