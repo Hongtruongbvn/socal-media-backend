@@ -229,7 +229,7 @@ export class AuthService {
             
             return { 
                 message: 'Xác thực email thành công!',
-                redirectUrl: '/login'
+                redirectUrl: '/'
             };
     
     }

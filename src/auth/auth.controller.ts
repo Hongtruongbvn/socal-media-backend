@@ -108,7 +108,7 @@ export class AuthController {
                             ${result.message.includes('thành công') ? 'Xác thực thành công!' : 'Thông báo'}
                         </h2>
                         <p>${result.message}</p>
-                        <a href="${process.env.FRONTEND_URL}${result.redirectUrl || '/login'}" class="btn">
+                        <a href="${process.env.FRONTEND_URL}${result.redirectUrl || '/'}" class="btn">
                             🔐 Đến trang đăng nhập
                         </a>
                     </div>
