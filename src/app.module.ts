@@ -76,12 +76,6 @@ MailerModule.forRootAsync({
       tls: {
         rejectUnauthorized: false,
       },
-
-      pool: true,
-
-      connectionTimeout: 30000,
-      greetingTimeout: 30000,
-      socketTimeout: 30000,
     },
 
     defaults: {
@@ -89,6 +83,8 @@ MailerModule.forRootAsync({
     },
 
     preview: false,
+
+    verifyTransporter: false,
   }),
 }),
 
