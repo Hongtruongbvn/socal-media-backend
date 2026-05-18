@@ -1,98 +1,111 @@
-<p align="center">
-  <a href="http://nestjs.com/" target="blank"><img src="https://nestjs.com/img/logo-small.svg" width="120" alt="Nest Logo" /></a>
-</p>
+Overview
 
-[circleci-image]: https://img.shields.io/circleci/build/github/nestjs/nest/master?token=abc123def456
-[circleci-url]: https://circleci.com/gh/nestjs/nest
+This project is the backend API for the Socal Media social networking platform.
+It provides authentication, social interactions, messaging, group management, AI chatbot support, payment integration, and game-related services for the frontend application.
 
-  <p align="center">A progressive <a href="http://nodejs.org" target="_blank">Node.js</a> framework for building efficient and scalable server-side applications.</p>
-    <p align="center">
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/v/@nestjs/core.svg" alt="NPM Version" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/l/@nestjs/core.svg" alt="Package License" /></a>
-<a href="https://www.npmjs.com/~nestjscore" target="_blank"><img src="https://img.shields.io/npm/dm/@nestjs/common.svg" alt="NPM Downloads" /></a>
-<a href="https://circleci.com/gh/nestjs/nest" target="_blank"><img src="https://img.shields.io/circleci/build/github/nestjs/nest/master" alt="CircleCI" /></a>
-<a href="https://discord.gg/G7Qnnhy" target="_blank"><img src="https://img.shields.io/badge/discord-online-brightgreen.svg" alt="Discord"/></a>
-<a href="https://opencollective.com/nest#backer" target="_blank"><img src="https://opencollective.com/nest/backers/badge.svg" alt="Backers on Open Collective" /></a>
-<a href="https://opencollective.com/nest#sponsor" target="_blank"><img src="https://opencollective.com/nest/sponsors/badge.svg" alt="Sponsors on Open Collective" /></a>
-  <a href="https://paypal.me/kamilmysliwiec" target="_blank"><img src="https://img.shields.io/badge/Donate-PayPal-ff3f59.svg" alt="Donate us"/></a>
-    <a href="https://opencollective.com/nest#sponsor"  target="_blank"><img src="https://img.shields.io/badge/Support%20us-Open%20Collective-41B883.svg" alt="Support us"></a>
-  <a href="https://twitter.com/nestframework" target="_blank"><img src="https://img.shields.io/twitter/follow/nestframework.svg?style=social&label=Follow" alt="Follow us on Twitter"></a>
-</p>
-  <!--[![Backers on Open Collective](https://opencollective.com/nest/backers/badge.svg)](https://opencollective.com/nest#backer)
-  [![Sponsors on Open Collective](https://opencollective.com/nest/sponsors/badge.svg)](https://opencollective.com/nest#sponsor)-->
+Frontend Repository:
+Socal Media Frontend : https://github.com/Hongtruongbvn/socal-media-frontend
 
-## Description
+Backend API Deployment:
+Socal Media Backend API : https://socal-media-backend-qh5r.onrender.com/api
 
-[Nest](https://github.com/nestjs/nest) framework TypeScript starter repository.
+Important Notice
 
-## Project setup
+Because the backend and frontend are deployed separately, the backend server may enter sleep mode on Render after a period of inactivity.
 
-```bash
-$ pnpm install
-```
+Before accessing the frontend application, please open the backend API link first to wake up the server:
 
-## Compile and run the project
+Wake Up Backend Server
 
-```bash
-# development
-$ pnpm run start
+After the API responds successfully, you can use the frontend normally.
 
-# watch mode
-$ pnpm run start:dev
+Features
+User Authentication with JWT
+Email Verification & Password Reset
+Real-time Messaging System
+Group & Community Management
+Friend Requests & Follow System
+Posts, Comments, Reactions, and Reposts
+Notifications System
+AI Chatbot Integration
+Game Information Integration via IGDB API
+Stripe Payment Integration
+MongoDB Database Support
+RESTful API Architecture
+Tech Stack
+Backend
+NestJS
+MongoDB + Mongoose
+JWT Authentication
+Stripe API
+Google AI API
+Nodemailer
+Frontend
+React
+TypeScript
+SCSS
+Vite
+Environment Variables
 
-# production mode
-$ pnpm run start:prod
-```
+Create a .env file in the root directory and configure the following variables:
 
-## Run tests
+# Email config
+MAIL_USER=
+MAIL_HOST=
+MAIL_PASS=
+MAIL_FROM=
 
-```bash
-# unit tests
-$ pnpm run test
+# Database
+MONGO_URI=
 
-# e2e tests
-$ pnpm run test:e2e
+# Auth
+JWT_SECRET=
+JWT_EXPIRES_IN=
 
-# test coverage
-$ pnpm run test:cov
-```
+# IGDB API
+IGDB_CLIENT_ID=
+IGDB_CLIENT_SECRET=
+API_URL=
 
-## Deployment
+# Google AI
+GOOGLE_AI_API_KEY=
+CHATBOT_USER_ID=
 
-When you're ready to deploy your NestJS application to production, there are some key steps you can take to ensure it runs as efficiently as possible. Check out the [deployment documentation](https://docs.nestjs.com/deployment) for more information.
+# Stripe (backend uses SECRET KEY)
+STRIPE_SECRET_KEY=
+Installation
 
-If you are looking for a cloud-based platform to deploy your NestJS application, check out [Mau](https://mau.nestjs.com), our official platform for deploying NestJS applications on AWS. Mau makes deployment straightforward and fast, requiring just a few simple steps:
+Clone the repository:
 
-```bash
-$ pnpm install -g @nestjs/mau
-$ mau deploy
-```
+git clone <your-backend-repository>
 
-With Mau, you can deploy your application in just a few clicks, allowing you to focus on building features rather than managing infrastructure.
+Install dependencies:
 
-## Resources
+npm install
 
-Check out a few resources that may come in handy when working with NestJS:
+Run the development server:
 
-- Visit the [NestJS Documentation](https://docs.nestjs.com) to learn more about the framework.
-- For questions and support, please visit our [Discord channel](https://discord.gg/G7Qnnhy).
-- To dive deeper and get more hands-on experience, check out our official video [courses](https://courses.nestjs.com/).
-- Deploy your application to AWS with the help of [NestJS Mau](https://mau.nestjs.com) in just a few clicks.
-- Visualize your application graph and interact with the NestJS application in real-time using [NestJS Devtools](https://devtools.nestjs.com).
-- Need help with your project (part-time to full-time)? Check out our official [enterprise support](https://enterprise.nestjs.com).
-- To stay in the loop and get updates, follow us on [X](https://x.com/nestframework) and [LinkedIn](https://linkedin.com/company/nestjs).
-- Looking for a job, or have a job to offer? Check out our official [Jobs board](https://jobs.nestjs.com).
+npm run start:dev
+API Base URL
+https://socal-media-backend-qh5r.onrender.com/api
+Frontend Setup
 
-## Support
+Clone the frontend project:
 
-Nest is an MIT-licensed open source project. It can grow thanks to the sponsors and support by the amazing backers. If you'd like to join them, please [read more here](https://docs.nestjs.com/support).
+Frontend Repository
 
-## Stay in touch
+Install dependencies and run:
 
-- Author - [Kamil Myśliwiec](https://twitter.com/kammysliwiec)
-- Website - [https://nestjs.com](https://nestjs.com/)
-- Twitter - [@nestframework](https://twitter.com/nestframework)
-
-## License
-
-Nest is [MIT licensed](https://github.com/nestjs/nest/blob/master/LICENSE).
+npm install
+npm run dev
+Deployment
+Backend
+Render
+Frontend
+Vercel / Render / Netlify (depending on deployment choice)
+Notes
+Make sure MongoDB Atlas is configured correctly.
+Stripe requires a valid secret key.
+Google AI features require a valid API key.
+IGDB API credentials are required for game-related features.
+Some API requests may be slow during the first request because Render free instances may sleep when inactive.
